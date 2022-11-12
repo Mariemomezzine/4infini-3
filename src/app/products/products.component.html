@@ -1,0 +1,27 @@
+{{title}}
+<table>
+  <tr>
+    <th>id</th>
+    <th>title</th>
+    <th>quantity</th>
+    <th>price</th>
+    <th>like</th>
+    <th>action</th>
+
+  </tr>
+  <tr *ngFor="let p of productList">
+    <td>{{p.id}}</td>
+    <td>{{p.title}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.price}}</td>
+    <td>{{p.like}}</td>
+    <td>
+      <button (click)="buy(p.id)" [disabled]="p.quantity==0">buy</button>
+    </td>
+    <td>
+      <button (click)="like(p.id)">like</button>
+    </td>
+    <td *ngIf="p.like>=10">bestproducts</td>
+
+  </tr>
+</table>
